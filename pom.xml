@@ -4,15 +4,21 @@
 
     <groupId>pl.codeleak.demos.sbt</groupId>
     <artifactId>spring-boot-thymeleaf</artifactId>
-    <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>spring-boot-thymeleaf</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <tomcat.version>8.0.9</tomcat.version>
+        <junit.version>4.11</junit.version>
+    </properties>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.0.1.RELEASE</version>
+        <version>1.1.4.RELEASE</version>
     </parent>
 
     <!-- Add typical dependencies for a web application -->
@@ -24,6 +30,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <!-- Provided (for embedded war support) -->
         <dependency>
@@ -42,5 +63,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
