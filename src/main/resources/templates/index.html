@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Hello Spring Boot!</title>
@@ -151,7 +151,9 @@
             </tbody>
         </table>
     </div>
-    <div th:replace="fragments/footer :: footer">&copy; 2014 The Static Templates</div>
+    <footer>
+        <div th:replace="fragments/footer :: footer">&copy; 2014 The Static Templates</div>
+    </footer>
 </div>
 </body>
 </html>
