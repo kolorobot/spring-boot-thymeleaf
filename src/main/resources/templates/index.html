@@ -38,7 +38,7 @@
     <div class="hero-unit">
         <h1>Test</h1>
         <p>
-            Welcome to the Spring Boot Thymeleaf Application!
+            Welcome to the Spring Boot Thymeleaf Application! The time is: <strong th:text="${#temporals.format(now, 'dd/MMM/yyyy HH:mm')}">31/12/2015 15:00</strong>
         </p>
         <p>
             <a href="#" th:href="@{properties}" class="btn btn-large btn-success">System Properties</a>
