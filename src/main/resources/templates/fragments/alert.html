@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"
           rel="stylesheet" media="screen" />
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/js/bootstrap.min.js"
-          th:href="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"
+          th:href="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"
           rel="stylesheet" media="screen" />
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
-            th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+            th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
 </head>
 <body>
     <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-' + ${type}">
