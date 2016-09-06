@@ -24,7 +24,7 @@
         <!-- Overriding version of selected dependencies -->
         <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
-        <thymeleaf-layout-dialect.version>2.0.1.RELEASE</thymeleaf-layout-dialect.version>
+        <thymeleaf-layout-dialect.version>2.0.1</thymeleaf-layout-dialect.version>
         <assertj.version>3.5.2</assertj.version>
     </properties>
 
