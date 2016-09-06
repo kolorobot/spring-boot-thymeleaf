@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 
 <head>
     <title>Hello Spring Boot!</title>
@@ -15,11 +17,10 @@
 </head>
 <body>
 <!-- Header -->
-<div th:replace="fragments/header :: header">
+<div>
     <!-- ============================================================================ -->
     <!-- This content is only used for static prototyping purposes (natural templates)-->
-    <!-- and is therefore entirely optional, as this markup fragment will be included -->
-    <!-- from "fragments/header.html" at runtime.                                     -->
+    <!-- and is therefore entirely optional.                                           -->
     <!-- ============================================================================ -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -34,7 +35,8 @@
         </div>
     </div>
 </div>
-<div class="container">
+<!-- Insert content into the layouts/layout.html -->
+<th:block layout:fragment="content">
     <div class="hero-unit">
         <h1>Test</h1>
         <p>
@@ -136,16 +138,12 @@
                         <p><a href="#" th:href="@{trace}">trace</a></p>
                     </td>
                     <td>
-                        <p>Displays trace information (by
-                            default the last few HTTP requests).</p>
+                        <p>Displays trace information (by default the last few HTTP requests).</p>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <footer>
-        <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
-    </footer>
-</div>
+</th:block>
 </body>
 </html>
