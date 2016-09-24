@@ -9,11 +9,26 @@
     <packaging>war</packaging>
 
     <!-- Inherit defaults from Spring Boot -->
+    <!-- With this starter it is easier to override versions of libraries -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.1.RELEASE</version>
     </parent>
+
+    <!-- Spring IO Platform for dependency management -->
+    <!-- If you are using platform-bom, disable spring-boot-starter-parent -->
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
+            <!--<dependency>-->
+                <!--<groupId>io.spring.platform</groupId>-->
+                <!--<artifactId>platform-bom</artifactId>-->
+                <!--<version>2.0.8.RELEASE</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,6 +37,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <!-- Overriding version of selected dependencies -->
+        <!-- Work when using spring-boot-starter-parent, not platform-bom -->
         <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
         <thymeleaf-layout-dialect.version>2.0.1</thymeleaf-layout-dialect.version>
@@ -70,13 +86,11 @@
             <scope>test</scope>
         </dependency>
         <!-- Provided (for embedded war support) -->
-        <!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
     </dependencies>
 
     <!-- Package as an executable jar -->
