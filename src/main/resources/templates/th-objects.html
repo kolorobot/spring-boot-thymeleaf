@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+</head>
+<body>
+<!-- Insert content into the layouts/layout.html -->
+<th:block layout:fragment="content">
+    <section id="model-attributes">
+        <h1>Model Attributes</h1>
+        <ul th:each="message : ${messages}">
+            <td th:text="${message}">Message</td>
+        </ul>
+    </section>
+    
+    <section id="query-params">
+        <h1>Query Params</h1>
+        <p th:text="${param.q}">Test</p>
+        <p th:text="${param.q[0]}" th:unless="${param.q == null}">Test</p>
+        <p th:text="${#request.getParameter('q')}" th:unless="${#request.getParameter('q') == null}">Test</p>
+    </section>
+    
+    <section id="session-attributes">
+        <h1>Session Attributes</h1>
+        <p th:text="${session.mySessionAttribute}" th:unless="${session == null}">[...]</p>
+        <p th:text="${#session.getAttribute('mySessionAttribute')}" th:unless="${#session == null}">[...]</p>
+    </section>
+    
+    <section id="servlet-context-attributes">
+        <h1>Servlet Context</h1>
+        <table>
+            <tr>
+                <td>My context attribute</td>
+                <!-- Retrieves the ServletContext attribute 'myContextAttribute' -->
+                <td th:text="${#servletContext.getAttribute('myContextAttribute')}">42</td>
+            </tr>
+            <tr th:each="attr : ${#servletContext.getAttributeNames()}">
+                <td th:text="${attr}">javax.servlet.context.tempdir</td>
+                <td th:text="${#servletContext.getAttribute(attr)}">/tmp</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section id="spring-beans">
+        <h1>Spring Beans</h1>
+        
+        <p th:text="${@urlService.getApplicationUrl()}">...</p>
+    </section>
+    
+</th:block>
+</body>
+</html>

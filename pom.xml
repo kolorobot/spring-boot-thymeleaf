@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.1.RELEASE</version>
+        <version>1.4.2.RELEASE</version>
     </parent>
 
     <!-- Spring IO Platform for dependency management -->
@@ -38,9 +38,9 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <!-- Overriding version of selected dependencies -->
         <!-- Work when using spring-boot-starter-parent, not platform-bom -->
-        <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
+        <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
-        <thymeleaf-layout-dialect.version>2.0.1</thymeleaf-layout-dialect.version>
+        <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
         <assertj.version>3.5.2</assertj.version>
     </properties>
 
