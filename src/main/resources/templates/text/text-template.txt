@@ -1,0 +1,6 @@
+Name: [(${name})]
+Link: [(${url})]
+Tags:
+[# th:each="tag : ${tags}" ]
+    [(${tag})]
+[/]

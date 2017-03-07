@@ -1,4 +1,4 @@
-package pl.codeleak.demos.sbt.home;
+package pl.codeleak.demos.sbt.thymeleaf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link href="../static/css/core.css" th:href="@{/css/core.css}" rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+</head>
+<body>
+<!-- Insert content into the layouts/layout.html -->
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <form role="form" th:action="@{/text-templates/form}" th:object="${form}" th:method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" th:value="*{name}" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="url">Url</label>
+                    <input type="url" id="url" th:value="*{url}" name="url" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags (e.g. #tag1 #tag2 #tag3)</label>
+                    <input type="text" id="tags" th:value="*{tags}" name="tags" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-success" value="Add">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Processed text template</h2>
+            <pre th:text="${text}">
+                Demo
+            </pre>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
