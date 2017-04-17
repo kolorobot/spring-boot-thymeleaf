@@ -26,11 +26,11 @@ Navigate to the newly created folder:
 
 Run the project with:
 
-> mvnw clean spring-boot:run
+> mvn clean spring-boot:run
 
 To package the project run:
 
-> mvnw clean package
+> mvn clean package
 
 
 Referenced articles:
