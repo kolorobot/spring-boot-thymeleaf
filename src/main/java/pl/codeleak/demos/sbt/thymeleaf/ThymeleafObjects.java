@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
@@ -34,6 +35,12 @@ class ThymeleafObjects {
     String sessionAttributes(HttpSession session) {
         session.setAttribute("mySessionAttribute", "Session Attr 1");
         return "th-objects";
+    }
+
+    @GetMapping("/flash-attr")
+    String flashAttributes(RedirectAttributes ra) {
+        ra.addFlashAttribute("flash", "Flash Demo");
+        return "redirect:/model-attr";
     }
 
     @Configuration
