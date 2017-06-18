@@ -54,4 +54,5 @@ class ThymeleafObjects {
     public interface UrlService {
         String getApplicationUrl();
     }
+
 }

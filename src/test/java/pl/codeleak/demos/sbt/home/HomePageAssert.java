@@ -27,6 +27,7 @@ public class HomePageAssert extends AbstractAssert<HomePageAssert, HomePage> {
     private List<String> getLinkNames() {
         List<WebElement> actuatorLinks = actual.getActuatorLinks();
         return actuatorLinks.stream()
-                            .map(WebElement::getText).collect(Collectors.toList());
+                .map(WebElement::getText).collect(Collectors.toList());
     }
+
 }

@@ -30,15 +30,15 @@ public class AuditApplicationEventListener {
         AuditEvent actualAuditEvent = event.getAuditEvent();
 
         LOG.info("On audit application event: timestamp: {}, principal: {}, type: {}, data: {}",
-            actualAuditEvent.getTimestamp(),
-            actualAuditEvent.getPrincipal(),
-            actualAuditEvent.getType(),
-            actualAuditEvent.getData()
+                actualAuditEvent.getTimestamp(),
+                actualAuditEvent.getPrincipal(),
+                actualAuditEvent.getType(),
+                actualAuditEvent.getData()
         );
         applicationEventPublisher.publishEvent(
-            new AuditApplicationEvent(
-                new AuditEvent(actualAuditEvent.getPrincipal(), "CUSTOM_AUDIT_EVENT")
-            )
+                new AuditApplicationEvent(
+                        new AuditEvent(actualAuditEvent.getPrincipal(), "CUSTOM_AUDIT_EVENT")
+                )
         );
     }
 
@@ -47,4 +47,5 @@ public class AuditApplicationEventListener {
     public void onCustomAuditEvent(AuditApplicationEvent event) {
         LOG.info("Handling custom audit event ...");
     }
+
 }

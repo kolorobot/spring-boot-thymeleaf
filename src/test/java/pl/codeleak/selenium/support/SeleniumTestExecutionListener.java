@@ -65,12 +65,11 @@ public class SeleniumTestExecutionListener extends AbstractTestExecutionListener
         if (testContext.getTestException() == null) {
             return;
         }
-
         File screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
         String testName = toLowerUnderscore(testContext.getTestClass().getSimpleName());
         String methodName = toLowerUnderscore(testContext.getTestMethod().getName());
-
         Files.copy(screenshot.toPath(),
                 Paths.get("screenshots", testName + "_" + methodName + "_" + screenshot.getName()));
     }
+
 }

@@ -28,4 +28,5 @@ public class HomePage {
     public List<WebElement> getActuatorLinks() {
         return actuatorLinks;
     }
+
 }
