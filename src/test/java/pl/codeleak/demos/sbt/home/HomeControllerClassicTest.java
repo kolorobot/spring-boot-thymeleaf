@@ -19,9 +19,10 @@ public class HomeControllerClassicTest {
     @Test
     public void verifiesHomePageLoads() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
-               .andExpect(MockMvcResultMatchers.model().hasNoErrors())
-               .andExpect(MockMvcResultMatchers.model().attributeExists("now"))
-               .andExpect(MockMvcResultMatchers.view().name("index"))
-               .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.model().hasNoErrors())
+                .andExpect(MockMvcResultMatchers.model().attributeExists("now"))
+                .andExpect(MockMvcResultMatchers.view().name("index"))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
 }

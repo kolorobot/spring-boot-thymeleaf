@@ -16,7 +16,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 /**
  * Using text templates with Thymeleaf.
- *
+ * <p>
  * See http://blog.codeleak.pl/2017/03/getting-started-with-thymeleaf-3-text.html
  */
 @Controller
@@ -101,4 +101,5 @@ public class ThymeleafTextTemplates {
             this.tags = tags;
         }
     }
+
 }

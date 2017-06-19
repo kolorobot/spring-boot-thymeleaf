@@ -40,4 +40,5 @@ public class HomeControllerTest {
         homePage.assertThat()
                 .hasNoActuatorLink("autoconfig");
     }
+
 }

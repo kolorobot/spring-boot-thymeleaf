@@ -11,4 +11,5 @@ public final class CaseFormat {
                 .map(s -> s.toLowerCase())
                 .collect(Collectors.joining("_"));
     }
+
 }
