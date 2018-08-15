@@ -2,3 +2,5 @@
 target
 build
 *.iml
+.classpath
+.project
