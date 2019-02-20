@@ -42,6 +42,9 @@
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
         <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
         <assertj.version>3.8.0</assertj.version>
+        
+        <webjars.bootstrap.version>3.3.7</webjars.bootstrap.version>
+		<webjars.jquery.version>3.2.1</webjars.jquery.version>
     </properties>
 
     <!-- Add typical dependencies for a web application -->
@@ -74,13 +77,19 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>3.3.7</version>
+            <version>${webjars.bootstrap.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.2.1</version>
+            <version>${webjars.jquery.version}</version>
         </dependency>
+        
+        <dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+		</dependency>
+        
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
