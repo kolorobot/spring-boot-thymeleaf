@@ -4,47 +4,44 @@
 
     <groupId>pl.codeleak.demos.sbt</groupId>
     <artifactId>spring-boot-thymeleaf</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.0</version>
     <name>spring-boot-thymeleaf</name>
     <packaging>war</packaging>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/snapshot</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <!-- Inherit defaults from Spring Boot -->
     <!-- With this starter it is easier to override versions of libraries -->
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
+        <version>2.4.5</version>
     </parent>
-
-    <!-- Spring IO Platform for dependency management -->
-    <!-- If you are using platform-bom, disable spring-boot-starter-parent -->
-    <!--<dependencyManagement>-->
-        <!--<dependencies>-->
-            <!--<dependency>-->
-                <!--<groupId>io.spring.platform</groupId>-->
-                <!--<artifactId>platform-bom</artifactId>-->
-                <!--<version>2.0.8.RELEASE</version>-->
-                <!--<type>pom</type>-->
-                <!--<scope>import</scope>-->
-            <!--</dependency>-->
-        <!--</dependencies>-->
-    <!--</dependencyManagement>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+
         <!-- Overriding version of selected dependencies -->
-        <!-- Work when using spring-boot-starter-parent, not platform-bom -->
-        <thymeleaf.version>3.0.6.RELEASE</thymeleaf.version>
-        <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
-        <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
-        <assertj.version>3.8.0</assertj.version>
-        
+        <assertj.version>3.19.0</assertj.version>
+
+        <!-- WebJars -->
         <webjars.bootstrap.version>3.3.7</webjars.bootstrap.version>
 		<webjars.jquery.version>3.2.1</webjars.jquery.version>
+		<webjars.webjars-locator.version>0.40</webjars.webjars-locator.version>
     </properties>
 
     <!-- Add typical dependencies for a web application -->
@@ -57,6 +54,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- Thymeleaf with following dialects: Java 8 Time, Layout and Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -66,6 +64,14 @@
             <artifactId>thymeleaf-extras-java8time</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
@@ -73,6 +79,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
         <!-- WebJars -->
         <dependency>
             <groupId>org.webjars</groupId>
@@ -84,12 +91,12 @@
             <artifactId>jquery</artifactId>
             <version>${webjars.jquery.version}</version>
         </dependency>
-        
         <dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-		</dependency>
-        
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars.webjars-locator.version}</version>
+        </dependency>
+
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

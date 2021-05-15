@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout}">
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
-<head>
-    <title>Hello Spring Boot!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
-    <link href="../static/css/core.css"
-          th:href="@{/css/core.css}"
-          rel="stylesheet" media="screen" />
-    <script src="/webjars/jquery/jquery.min.js"
-            th:src="@{/webjars/jquery/jquery.min.js}"></script>
-</head>
-<body>
-<!-- Header -->
-<div>
-    <!-- ============================================================================ -->
-    <!-- This content is only used for static prototyping purposes (natural templates)-->
-    <!-- and is therefore entirely optional.                                           -->
-    <!-- ============================================================================ -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Static header</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Insert content into the layouts/layout.html -->
 <th:block layout:fragment="content">
     <div class="hero-unit">
-        <h1>Test</h1>
+        <h1>Logged user: <span sec:authentication="name" /></h1>
         <p>
-            Welcome to the Spring Boot Thymeleaf Application! The time is: <strong th:text="${#temporals.format(now, 'dd/MMM/yyyy HH:mm')}">31/12/2015 15:00</strong>
+            Welcome to the Spring Boot Thymeleaf Application! The time is: <strong
+                th:text="${#temporals.format(now, 'dd/MMM/yyyy HH:mm')}">31/12/2015 15:00</strong>
         </p>
         <p>
-            <a href="#" th:href="@{properties}" class="btn btn-large btn-success">System Properties</a>
+            <a href="#" th:href="@{properties}" class="btn btn-large btn-success">Check System Properties</a>
+        </p>
+    </div>
+    <div>
+        <h1>Thymeleaf Objects</h1>
+        <p>See: <code class="literal">pl.codeleak.demos.sbt.thymeleaf.ThymeleafObjects</code></p>
+        <p>
+            <a href="#" th:href="@{model-attr}">Model attributes</a>
+            <a href="#" th:href="@{query-params}">Query params</a>
+            <a href="#" th:href="@{session-attr}">Session attributes</a>
+            <a href="#" th:href="@{flash-attr}">Flash attributes</a>
+        </p>
+    </div>
+    <div>
+        <h1>Thymeleaf Text Templates</h1>
+        <p>See: <code class="literal">pl.codeleak.demos.sbt.thymeleaf.ThymeleafTextTemplates</code></p>
+        <p>
+            <a href="#" th:href="@{text-templates/form}">Form</a>
         </p>
     </div>
     <div>
@@ -52,103 +39,78 @@
             Actuator endpoints allow you to monitor and interact with your application.
             Spring Boot includes a number of built-in endpoints and you can also add your own.
         </p>
-        <table>
+        <table class="table">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Description</th>
-                </tr>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{loggers}">loggers</a></p>
-                    </td>
-                    <td>
-                        <p>Displays loggers levels</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{autoconfig}">autoconfig</a></p>
-                    </td>
-                    <td>
-                        <p>Displays an auto-configuration report showing all auto-configuration candidates and the
-                        reason why they “were” or “were not” applied.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{beans}">beans</a></p>
-                    </td>
-                    <td>
-                        <p>Displays a complete list of all the Spring Beans in your application</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{configprops}">configprops</a></p>
-                    </td>
-                    <td>
-                        <p>Displays a collated list of all <code class="literal">@ConfigurationProperties</code>.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{dump}">dump</a></p>
-                    </td>
-                    <td>
-                        <p>Performs a thread dump.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{env}">env</a></p>
-                    </td>
-                    <td>
-                        <p>Exposes properties from Spring’s <code class="literal">ConfigurableEnvironment</code>.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{health}">health</a></p>
-                    </td>
-                    <td>
-                        <p>Shows application health information (defaulting to a simple “OK” message).</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{info}">info</a></p>
-                    </td>
-                    <td>
-                        <p>Displays arbitrary application info.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{metrics}">metrics</a></p>
-                    </td>
-                    <td>
-                        <p>Shows “metrics” information for the current application.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{mappings}">mappings</a></p>
-                    </td>
-                    <td>
-                        <p>Displays a collated list of all <code class="literal">@RequestMapping</code> paths.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><a href="#" th:href="@{trace}">trace</a></p>
-                    </td>
-                    <td>
-                        <p>Displays trace information (by default the last few HTTP requests).</p>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{loggers}">loggers</a></p>
+                </td>
+                <td>
+                    <p>Displays loggers levels</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{beans}">beans</a></p>
+                </td>
+                <td>
+                    <p>Displays a complete list of all the Spring Beans in your application</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{configprops}">configprops</a></p>
+                </td>
+                <td>
+                    <p>Displays a collated list of all <code class="literal">@ConfigurationProperties</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{env}">env</a></p>
+                </td>
+                <td>
+                    <p>Exposes properties from Spring’s <code class="literal">ConfigurableEnvironment</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{health}">health</a></p>
+                </td>
+                <td>
+                    <p>Shows application health information (defaulting to a simple “OK” message).</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{info}">info</a></p>
+                </td>
+                <td>
+                    <p>Displays arbitrary application info.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{metrics}">metrics</a></p>
+                </td>
+                <td>
+                    <p>Shows “metrics” information for the current application.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{mappings}">mappings</a></p>
+                </td>
+                <td>
+                    <p>Displays a collated list of all <code class="literal">@RequestMapping</code> paths.</p>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
