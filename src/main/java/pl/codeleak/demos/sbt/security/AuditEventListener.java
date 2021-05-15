@@ -2,8 +2,7 @@ package pl.codeleak.demos.sbt.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.actuate.audit.AuditEvent;
-import org.springframework.boot.actuate.audit.AuditEventRepository;
+import org.springframework.boot.actuate.audit.*;
 import org.springframework.boot.actuate.audit.listener.AbstractAuditListener;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +14,7 @@ public class AuditEventListener extends AbstractAuditListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuditEventListener.class);
 
-    private final AuditEventRepository auditEventRepository;
-
-    public AuditEventListener(AuditEventRepository auditEventRepository) {
-        this.auditEventRepository = auditEventRepository;
-    }
+    private final AuditEventRepository auditEventRepository = new InMemoryAuditEventRepository();
 
     @Override
     protected void onAuditEvent(AuditEvent event) {

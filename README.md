@@ -1,37 +1,49 @@
 Spring Boot and Thymeleaf with Maven
 ====================================
 
-- Spring Boot with Maven and Spring IO Platform for dependency management
+- Spring Boot 2
 - Web application (WAR) packaging as well as self-contained JAR
-- Thymeleaf with Java 8 Time (Java8TimeDialect)
+- Thymeleaf with Java 8 Time Dialect and Layout Dialect
 - WebJars
 - Selenium configuration included
-- Maven Wrapper included
 
 Prerequisites
 -------------
 
-- JDK 8 and JAVA_HOME environment variable set 
+- JDK 11 and JAVA_HOME environment variable set 
 
 Building the project
 --------------------
 
 Clone the repository:
 
-> git clone https://github.com/kolorobot/spring-boot-thymeleaf
+    git clone https://github.com/kolorobot/spring-boot-thymeleaf
 
 Navigate to the newly created folder:
 
-> cd spring-boot-thymeleaf
+    cd spring-boot-thymeleaf
 
 Run the project with:
 
-> mvnw clean spring-boot:run
+    ./mvnw clean spring-boot:run
 
 To package the project run:
 
-> mvnw clean package
+    ./mvnw clean package
 
+Open the application
+--------------------
+
+Application will be running on http://localhost:8080
+
+To login enter `user` and `demo`
+
+
+Known issues
+------------
+
+- Text templates example does not work
+- Selenium configuration does not work
 
 Referenced articles:
 --------------------
