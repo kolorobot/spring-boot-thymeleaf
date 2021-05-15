@@ -1,16 +1,15 @@
-Spring Boot and Thymeleaf with Maven
-====================================
+Spring Boot 2 and Thymeleaf with Maven
+======================================
 
 - Spring Boot 2
 - Web application (WAR) packaging as well as self-contained JAR
-- Thymeleaf with Java 8 Time Dialect and Layout Dialect
-- WebJars
-- Selenium configuration included
+- `Thymeleaf` with following dialects: Java 8 Time, Layout and Security
+- `WebJars`
 
 Prerequisites
 -------------
 
-- JDK 11 and JAVA_HOME environment variable set 
+- `JDK 11` and `JAVA_HOME` environment variable set 
 
 Building the project
 --------------------
@@ -27,26 +26,35 @@ Run the project with:
 
     ./mvnw clean spring-boot:run
 
+Navigate to:
+
+    http://localhost:8080
+
+Login with: `user` and `demo`
+
+Package the application
+-----------------------
+
 To package the project run:
 
     ./mvnw clean package
 
-Open the application
---------------------
+Screenshots
+-----------
 
-Application will be running on http://localhost:8080
+- Login
 
-To login enter `user` and `demo`
+![login](screenshots/login.png)
+
+- Dashboard
+  
+![dasboard](screenshots/dashboard.png)
 
 
-Known issues
-------------
+On my blog:
+-----------
 
-- Text templates example does not work
-- Selenium configuration does not work
-
-Referenced articles:
---------------------
+Articles on my blog referencing to this project:
 
 - [Java 8 Date & Time with Thymeleaf](http://blog.codeleak.pl/2015/11/how-to-java-8-date-time-with-thymeleaf.html)
 - [Spring Boot and Thymeleaf with Maven](http://blog.codeleak.pl/2014/04/how-to-spring-boot-and-thymeleaf-with-maven.html)
